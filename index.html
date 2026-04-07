@@ -1459,23 +1459,101 @@
   }, { threshold: 0.3 });
   bookingObserver.observe(bookingSection);
 
-  // Form submission
-  function submitForm() {
-    const fname = document.getElementById('fname').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const service = document.getElementById('service').value;
-    const date = document.getElementById('date').value;
+  // ─── CONFIGURACIÓN — cambia estos valores por los tuyos ───────────────────
+  const CONFIG = {
+    // EmailJS — crea cuenta gratis en https://www.emailjs.com
+    emailjs_service_id:  'TU_SERVICE_ID',   // ej: 'service_abc123'
+    emailjs_template_id: 'TU_TEMPLATE_ID',  // ej: 'template_xyz789'
+    emailjs_public_key:  'TU_PUBLIC_KEY',   // ej: 'abcDEF123456'
+    barberia_email:      'tucorreo@gmail.com',
 
-    if (!fname || !phone || !service || !date) {
-      alert('Por favor completa los campos obligatorios: nombre, teléfono, servicio y fecha.');
+    // WhatsApp — solo el número con código de país, sin + ni espacios
+    whatsapp_number: '522381666971'          // ej: 522381666971
+  };
+  // ────────────────────────────────────────────────────────────────────────────
+
+  // Cargar EmailJS dinámicamente
+  (function loadEmailJS() {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    s.onload = () => emailjs.init(CONFIG.emailjs_public_key);
+    document.head.appendChild(s);
+  })();
+
+  async function submitForm() {
+    const fname   = document.getElementById('fname').value.trim();
+    const lname   = document.getElementById('lname').value.trim();
+    const phone   = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const date    = document.getElementById('date').value;
+    const time    = document.getElementById('time').value;
+    const notes   = document.getElementById('notes').value.trim();
+
+    if (!fname || !phone || !service || !date || !time) {
+      alert('Por favor completa: nombre, teléfono, servicio, fecha y hora.');
       return;
     }
 
-    document.getElementById('formWrap').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    const btn = document.querySelector('#formWrap .btn-primary');
+    btn.innerHTML = '<span>⏳ Enviando notificaciones...</span>';
+    btn.disabled = true;
 
-    // Scroll to show success
-    document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const nombreCompleto = `${fname} ${lname}`.trim();
+    const fechaFormato   = new Date(date + 'T12:00:00').toLocaleDateString('es-MX', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+    // 1️⃣ WHATSAPP — abre chat con mensaje prellenado
+    const waMsg = encodeURIComponent(
+      `🔔 *NUEVA CITA — EliteCuts*\n\n` +
+      `👤 Cliente: ${nombreCompleto}\n` +
+      `📱 Teléfono: ${phone}\n` +
+      `✂️ Servicio: ${service}\n` +
+      `📅 Fecha: ${fechaFormato}\n` +
+      `🕐 Hora: ${time}\n` +
+      `📝 Notas: ${notes || 'Ninguna'}\n\n` +
+      `_Confirmar o reprogramar respondiendo este mensaje._`
+    );
+    const waURL = `https://wa.me/${CONFIG.whatsapp_number}?text=${waMsg}`;
+
+    // 2️⃣ EMAIL — vía EmailJS
+    let emailSent = false;
+    try {
+      await emailjs.send(CONFIG.emailjs_service_id, CONFIG.emailjs_template_id, {
+        to_email:    CONFIG.barberia_email,
+        cliente:     nombreCompleto,
+        telefono:    phone,
+        servicio:    service,
+        fecha:       fechaFormato,
+        hora:        time,
+        notas:       notes || 'Ninguna',
+        reply_to:    CONFIG.barberia_email
+      });
+      emailSent = true;
+    } catch (err) {
+      console.warn('EmailJS no configurado aún:', err.text || err);
+    }
+
+    // Mostrar éxito y abrir WhatsApp
+    document.getElementById('formWrap').style.display = 'none';
+    const successDiv = document.getElementById('formSuccess');
+    successDiv.innerHTML = `
+      <span class="form-success-icon">✅</span>
+      <h3>¡Cita solicitada!</h3>
+      <p style="margin-bottom:1.2rem;">
+        ${emailSent ? '📧 Notificación enviada al correo del negocio.<br>' : ''}
+        💬 Se abrirá WhatsApp para notificar al barbero.
+      </p>
+      <a href="${waURL}" target="_blank" class="btn-primary" style="display:inline-flex;gap:.5rem;align-items:center;text-decoration:none;">
+        <span>💬 Enviar por WhatsApp ahora</span>
+      </a>
+      <p style="margin-top:1rem;font-size:.8rem;color:var(--gray);">
+        Te confirmaremos en menos de 10 minutos.
+      </p>
+    `;
+    successDiv.style.display = 'block';
+    successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Abrir WhatsApp automáticamente después de 1s
+    setTimeout(() => window.open(waURL, '_blank'), 1000);
   }
 
   // Nav scroll effect
