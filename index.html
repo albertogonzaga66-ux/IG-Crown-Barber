@@ -1045,7 +1045,62 @@
     section { padding: 4rem 5%; }
   }
 
-  /* Scroll animations */
+  /* ── REVIEW FORM ── */
+  .review-form-wrap { max-width: 700px; margin: 0 auto; }
+
+  .review-form-card {
+    background: var(--dark3);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 2rem 2.5rem;
+    position: relative;
+  }
+
+  .review-form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold-dark), var(--gold), var(--gold-light));
+  }
+
+  .star-picker {
+    display: flex;
+    gap: 0.4rem;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 0.3rem;
+  }
+
+  .star-opt {
+    color: var(--gray);
+    transition: color 0.2s, transform 0.2s;
+    user-select: none;
+  }
+
+  .star-opt:hover,
+  .star-opt.active { color: var(--gold); transform: scale(1.15); }
+
+  .dynamic-review-card {
+    background: var(--dark3);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 1.6rem;
+    animation: fadeUp 0.5s ease both;
+    position: relative;
+  }
+
+  .dynamic-review-card::after {
+    content: '✓ Reseña verificada';
+    position: absolute;
+    top: 0.8rem; right: 0.8rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+
   .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -1062,7 +1117,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Elite<span>Cuts</span></a>
+  <a href="#" class="nav-logo">IG<span> Barber Co.</span></a>
   <ul class="nav-links">
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
@@ -1075,7 +1130,7 @@
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-left">
-    <div class="hero-badge">✂ Barbería Premium desde 2010</div>
+    <div class="hero-badge">✂ Barbería Premium</div>
     <h1>El arte del<br><em>corte perfecto</em><br>te espera.</h1>
     <p>Más que un corte de cabello — una experiencia. Nuestros maestros barberos combinan técnica clásica con tendencias modernas para transformar tu imagen y elevar tu confianza.</p>
     <div class="hero-buttons">
@@ -1084,15 +1139,15 @@
     </div>
     <div class="hero-stats">
       <div>
-        <span class="stat-num">15+</span>
-        <span class="stat-label">Años de experiencia</span>
+        <span class="stat-num">500+</span>
+        <span class="stat-label">Cortes realizados</span>
       </div>
       <div>
-        <span class="stat-num">3K+</span>
+        <span class="stat-num">98%</span>
         <span class="stat-label">Clientes satisfechos</span>
       </div>
       <div>
-        <span class="stat-num">4.9★</span>
+        <span class="stat-num">4.5★</span>
         <span class="stat-label">Calificación promedio</span>
       </div>
     </div>
@@ -1102,7 +1157,7 @@
       <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=900&q=80" alt="Barbero profesional" />
     </div>
     <div class="hero-deco">
-      <p class="hero-deco-label">📍 Disponibles hoy</p>
+      <p class="hero-deco-label">📍 Disponibles </p>
       <p class="hero-deco-value">Horarios abiertos</p>
     </div>
     <div class="scissors-deco">✂</div>
@@ -1123,42 +1178,29 @@
       <div class="service-tag">⭐ Popular</div>
       <span class="service-icon">✂️</span>
       <h3 class="service-name">Corte Clásico</h3>
-      <p class="service-desc">Corte tradicional con navaja y tijera, lavado de cabello incluido y finalizado con productos de calidad.</p>
-      <div class="service-price">$120 <small>MXN / 30 min</small></div>
+      <p class="service-desc">Corte tradicional. </p>
+      <div class="service-price">$80 <big>MXN / 40 min</big></div>
     </div>
     <div class="service-card">
       <div class="service-tag">🔥 Tendencia</div>
       <span class="service-icon">💈</span>
       <h3 class="service-name">Corte + Barba</h3>
-      <p class="service-desc">Combinación perfecta de corte personalizado con perfilado y arreglo completo de barba con toalla caliente.</p>
-      <div class="service-price">$200 <small>MXN / 60 min</small></div>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🪒</span>
-      <h3 class="service-name">Rasurado con Navaja</h3>
-      <p class="service-desc">Rasurado al ras con navaja de filo recto, vapor caliente, crema artesanal y masaje facial relajante.</p>
-      <div class="service-price">$150 <small>MXN / 45 min</small></div>
+      <p class="service-desc">Combinación perfecta de corte personalizado y arreglo completo de barba.</p>
+      <div class="service-price">$120 <small>MXN / 60 min</big></div>
     </div>
     <div class="service-card">
       <span class="service-icon">🎨</span>
       <h3 class="service-name">Diseño y Degradado</h3>
-      <p class="service-desc">Fade profesional con diseño personalizado en la nuca o sienes, para un look único e impactante.</p>
-      <div class="service-price">$180 <small>MXN / 50 min</small></div>
+      <p class="service-desc">Fade profesional con diseño personalizado, para un look único e impactante.</p>
+      <div class="service-price">$100 <small>MXN / 50 min</big></div>
     </div>
     <div class="service-card">
       <div class="service-tag">✨ Premium</div>
       <span class="service-icon">👑</span>
       <h3 class="service-name">Experiencia VIP</h3>
-      <p class="service-desc">Corte + barba + masaje capilar + tratamiento de keratina y bebida de cortesía. La experiencia completa.</p>
-      <div class="service-price">$350 <small>MXN / 90 min</small></div>
+      <p class="service-desc">Corte + barba + masaje capilar + Mascarilla. La experiencia completa.</p>
+      <div class="service-price">$180 <small>MXN / 90 min</big></div>
     </div>
-    <div class="service-card">
-      <span class="service-icon">🧴</span>
-      <h3 class="service-name">Tratamiento Capilar</h3>
-      <p class="service-desc">Hidratación profunda, tratamiento anticaída o keratina aplicada por especialistas en cuidado capilar.</p>
-      <div class="service-price">$250 <small>MXN / 45 min</small></div>
-    </div>
-  </div>
 </section>
 
 <!-- ABOUT -->
@@ -1167,20 +1209,20 @@
     <img class="about-img-main" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80" alt="Interior de la barbería" />
     <img class="about-img-secondary" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=400&q=80" alt="Barbero en acción" />
     <div class="about-badge">
-      <span class="about-badge-num">15</span>
-      <span class="about-badge-text">Años de<br>Maestría</span>
+      <span class="about-badge-num">IG</span>
+      <span class="about-badge-text">Barber<br>Co.</span>
     </div>
   </div>
   <div class="about-content reveal">
     <div class="section-label">Quiénes somos</div>
     <h2 class="section-title">Pasión por el<br>detalle perfecto</h2>
-    <p class="section-sub">En EliteCuts creemos que un buen corte no es solo estética — es confianza, identidad y bienestar. Cada cliente merece atención única y resultados que superen sus expectativas.</p>
+    <p class="section-sub">En IG Barber Co. creemos que un buen corte no es solo estética — es confianza, identidad y bienestar. Cada cliente merece atención única y resultados que superen sus expectativas.</p>
     <div class="features-list">
       <div class="feature-item">
         <span class="feature-icon">🏆</span>
         <div class="feature-text">
-          <strong>Barberos Certificados</strong>
-          <span>Todos nuestros estilistas tienen formación profesional y más de 5 años de experiencia activa.</span>
+          <strong>Barbero Certificado</strong>
+          <span>Formación profesional especializada en técnicas clásicas y tendencias modernas de corte masculino.</span>
         </div>
       </div>
       <div class="feature-item">
@@ -1241,39 +1283,102 @@
   </div>
   <div class="testimonials-grid reveal">
     <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"Llevo 3 años yendo a EliteCuts y jamás me han decepcionado. El trato es excelente, el lugar impecable y el corte siempre exactamente como lo pido."</p>
+      <div class="testimonial-stars">★★★★</div>
+      <p class="testimonial-text">"Llevo 1 años yendo a EliteCuts y jamás me han decepcionado. El trato es excelente, el lugar impecable y el corte siempre exactamente como lo pido."</p>
       <div class="testimonial-author">
         <div class="author-avatar">AR</div>
         <div>
           <span class="author-name">Andrés Ramírez</span>
-          <span class="author-since">Cliente desde 2021</span>
+          <span class="author-since">Cliente desde 2025</span>
         </div>
       </div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"Fui por primera vez sin saber qué esperar y salí completamente enamorado del resultado. Mi barba quedó perfecta y el ambiente es muy profesional y relajante."</p>
+      <p class="testimonial-text">"Fui por primera vez sin saber qué esperar y salí completamente enamorado del resultado. El ambiente es muy profesional y relajante."</p>
       <div class="testimonial-author">
         <div class="author-avatar">MG</div>
         <div>
           <span class="author-name">Miguel Ángel García</span>
-          <span class="author-since">Cliente desde 2023</span>
+          <span class="author-since">Cliente verificado ✓</span>
         </div>
       </div>
     </div>
     <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"El servicio VIP vale cada centavo. Nunca pensé que un corte de cabello pudiera ser tan relajante y transformador. Lo recomiendo a todos mis amigos."</p>
+      <div class="testimonial-stars">★★★★</div>
+      <p class="testimonial-text">"El servicio VIP vale cada centavo. Nunca pensé que un corte de cabello pudiera ser tan relajante y transformador. Lo recomiendo."</p>
       <div class="testimonial-author">
         <div class="author-avatar">CL</div>
         <div>
           <span class="author-name">Carlos López</span>
-          <span class="author-since">Cliente desde 2022</span>
+          <span class="author-since">Cliente verificado ✓</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★</div>
+      <p class="testimonial-text">"Llegué sin cita y me atendieron muy amablemente. El degradado quedó impecable. Definitivamente ya es mi barbería de confianza."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AR</div>
+        <div>
+          <span class="author-name">Andrés Ramírez</span>
+          <span class="author-since">Cliente verificado ✓</span>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- REVIEW FORM -->
+  <div class="review-form-wrap reveal" style="margin-top:4rem;">
+    <div class="section-label" style="justify-content:center;margin-bottom:0.6rem;">Comparte tu experiencia</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;text-align:center;margin-bottom:2rem;">¿Ya visitaste IG Barber Co.?<br><span style="color:var(--gold);">Déjanos tu reseña</span></h3>
+    <div class="review-form-card" id="reviewFormWrap">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Tu nombre</label>
+          <input type="text" id="rname" placeholder="Ej: Juan Pérez" />
+        </div>
+        <div class="form-group">
+          <label>Servicio que recibiste</label>
+          <select id="rservice">
+            <option value="">— Selecciona —</option>
+            <option>Corte Clásico</option>
+            <option>Corte + Barba</option>
+            <option>Rasurado con Navaja</option>
+            <option>Diseño y Degradado</option>
+            <option>Experiencia VIP</option>
+            <option>Tratamiento Capilar</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tu calificación</label>
+        <div class="star-picker" id="starPicker">
+          <span class="star-opt" data-val="1">★</span>
+          <span class="star-opt" data-val="2">★</span>
+          <span class="star-opt" data-val="3">★</span>
+          <span class="star-opt" data-val="4">★</span>
+          <span class="star-opt" data-val="5">★</span>
+        </div>
+        <input type="hidden" id="rrating" value="0" />
+      </div>
+      <div class="form-group">
+        <label>Tu opinión</label>
+        <textarea id="rcomment" placeholder="Cuéntanos cómo fue tu experiencia en IG Barber Co. ..." style="height:100px;"></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%;justify-content:center;padding:1rem;" onclick="submitReview()">
+        <span>✨ Publicar mi reseña</span>
+      </button>
+    </div>
+    <div id="reviewSuccess" style="display:none;text-align:center;padding:2rem;">
+      <span style="font-size:2.5rem;display:block;margin-bottom:0.8rem;">🙌</span>
+      <h4 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.3rem;margin-bottom:0.4rem;">¡Gracias por tu reseña!</h4>
+      <p style="color:var(--light-gray);font-size:0.88rem;">Tu opinión ya aparece en la sección de reseñas.</p>
+    </div>
+  </div>
+
+  <!-- DYNAMIC REVIEWS CONTAINER -->
+  <div id="dynamicReviews" style="margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;"></div>
 </section>
 
 <!-- BOOKING -->
@@ -1294,21 +1399,21 @@
       <div class="booking-detail-icon">🕐</div>
       <div class="booking-detail-info">
         <strong>Horarios</strong>
-        <span>Lunes a Sábado: 9:00 AM – 8:00 PM · Domingo: 10:00 – 4:00 PM</span>
+        <span>Lunes a Sábado: 9:00 AM – 10:00 PM · Domingo: 10:00 – 8:00 PM</span>
       </div>
     </div>
     <div class="booking-detail">
       <div class="booking-detail-icon">📞</div>
       <div class="booking-detail-info">
         <strong>Teléfono & WhatsApp</strong>
-        <span>+52 222 123 4567</span>
+        <span>+52 238 166 6971</span>
       </div>
     </div>
     <div class="booking-detail">
       <div class="booking-detail-icon">📱</div>
       <div class="booking-detail-info">
         <strong>Instagram</strong>
-        <span>@elitecuts.barberia</span>
+        <span>@ig.barberco</span>
       </div>
     </div>
   </div>
@@ -1388,8 +1493,8 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="#" class="nav-logo">Elite<span>Cuts</span></a>
-      <p>Barbería premium en Puebla. Donde la tradición del corte clásico se encuentra con el estilo moderno. Tu imagen en manos expertas.</p>
+      <a href="#" class="nav-logo" style="display:block;margin-bottom:1rem;">IG<span> Barber Co.</span></a>
+      <p>Barbería premium en Puebla. Donde el estilo, la precisión y el cuidado personal se unen para darte el mejor corte. Tu imagen en manos de Iván Gonzaga.</p>
       <div class="social-links">
         <a href="#" class="social-link" title="Instagram">📸</a>
         <a href="#" class="social-link" title="Facebook">👥</a>
@@ -1428,7 +1533,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 EliteCuts Barbería. Todos los derechos reservados.</p>
+    <p>© 2025 IG Barber Co. — Iván Gonzaga. Todos los derechos reservados.</p>
     <p>Hecho con ✂ en <a href="#">Puebla, México</a></p>
   </div>
 </footer>
@@ -1503,7 +1608,7 @@
 
     // 1️⃣ WHATSAPP — abre chat con mensaje prellenado
     const waMsg = encodeURIComponent(
-      `🔔 *NUEVA CITA — EliteCuts*\n\n` +
+      `🔔 *NUEVA CITA — IG Barber Co.*\n\n` +
       `👤 Cliente: ${nombreCompleto}\n` +
       `📱 Teléfono: ${phone}\n` +
       `✂️ Servicio: ${service}\n` +
@@ -1572,6 +1677,73 @@
   const dateInput = document.getElementById('date');
   const today = new Date().toISOString().split('T')[0];
   dateInput.setAttribute('min', today);
+  const stars = document.querySelectorAll('.star-opt');
+  let selectedRating = 0;
+
+  stars.forEach(star => {
+    star.addEventListener('mouseenter', () => {
+      const val = +star.dataset.val;
+      stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= val));
+    });
+    star.addEventListener('mouseleave', () => {
+      stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= selectedRating));
+    });
+    star.addEventListener('click', () => {
+      selectedRating = +star.dataset.val;
+      document.getElementById('rrating').value = selectedRating;
+      stars.forEach(s => s.classList.toggle('active', +s.dataset.val <= selectedRating));
+    });
+  });
+
+  // ── SUBMIT REVIEW ────────────────────────────────────────────────
+  function submitReview() {
+    const name    = document.getElementById('rname').value.trim();
+    const service = document.getElementById('rservice').value;
+    const rating  = parseInt(document.getElementById('rrating').value);
+    const comment = document.getElementById('rcomment').value.trim();
+
+    if (!name || !service || rating === 0 || !comment) {
+      alert('Por favor completa todos los campos y selecciona tu calificación.');
+      return;
+    }
+
+    // Build initials avatar
+    const initials = name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    const stars_html = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+    // Create card
+    const card = document.createElement('div');
+    card.className = 'dynamic-review-card';
+    card.innerHTML = `
+      <div class="testimonial-stars" style="font-size:.85rem;letter-spacing:2px;margin-bottom:.7rem;color:var(--gold);">${stars_html}</div>
+      <p class="testimonial-text">"${comment}"</p>
+      <div class="testimonial-author" style="margin-top:1rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:.8rem;">
+        <div class="author-avatar">${initials}</div>
+        <div>
+          <span class="author-name" style="display:block;font-weight:600;font-size:.9rem;">${name}</span>
+          <span class="author-since" style="font-size:.75rem;color:var(--gray);font-weight:300;">Servicio: ${service}</span>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('dynamicReviews').prepend(card);
+
+    // Show success
+    document.getElementById('reviewFormWrap').style.display = 'none';
+    document.getElementById('reviewSuccess').style.display = 'block';
+
+    // Reset for next review after delay
+    setTimeout(() => {
+      document.getElementById('reviewFormWrap').style.display = 'block';
+      document.getElementById('reviewSuccess').style.display = 'none';
+      document.getElementById('rname').value = '';
+      document.getElementById('rservice').value = '';
+      document.getElementById('rcomment').value = '';
+      document.getElementById('rrating').value = '0';
+      selectedRating = 0;
+      stars.forEach(s => s.classList.remove('active'));
+    }, 3500);
+  }
 </script>
 </body>
 </html>
