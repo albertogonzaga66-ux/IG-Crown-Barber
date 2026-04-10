@@ -10,12 +10,12 @@
     --gold: #C9A84C;
     --gold-light: #E8C97A;
     --gold-dark: #9A7A30;
-    --black: #0A0A0A;
-    --dark: #111111;
-    --dark2: #1A1A1A;
-    --dark3: #222222;
-    --gray: #555555;
-    --light-gray: #AAAAAA;
+    --black: #1C1C1E;
+    --dark: #242426;
+    --dark2: #2A2A2D;
+    --dark3: #313135;
+    --gray: #777777;
+    --light-gray: #BBBBBB;
     --white: #F5F0E8;
     --cream: #EDE5D4;
   }
@@ -308,6 +308,7 @@
     border: 1px solid rgba(201,168,76,0.3);
     backdrop-filter: blur(8px);
     padding: 1.2rem 1.6rem;
+    text-align: center;
     animation: fadeUp 1s 0.8s ease both;
   }
 
@@ -399,7 +400,7 @@
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5px;
     background: rgba(201,168,76,0.1);
   }
@@ -452,13 +453,17 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--gold);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 
   .service-price small {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--gray);
-    margin-left: 4px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-left: 0;
   }
 
   .service-tag {
@@ -1147,7 +1152,7 @@
         <span class="stat-label">Clientes satisfechos</span>
       </div>
       <div>
-        <span class="stat-num">4.5★</span>
+        <span class="stat-num">4.9★</span>
         <span class="stat-label">Calificación promedio</span>
       </div>
     </div>
@@ -1157,7 +1162,7 @@
       <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=900&q=80" alt="Barbero profesional" />
     </div>
     <div class="hero-deco">
-      <p class="hero-deco-label">📍 Disponibles </p>
+      <p class="hero-deco-label">📍 Disponibles</p>
       <p class="hero-deco-value">Horarios abiertos</p>
     </div>
     <div class="scissors-deco">✂</div>
@@ -1178,29 +1183,30 @@
       <div class="service-tag">⭐ Popular</div>
       <span class="service-icon">✂️</span>
       <h3 class="service-name">Corte Clásico</h3>
-      <p class="service-desc">Corte tradicional. </p>
-      <div class="service-price">$80 <big>MXN / 40 min</big></div>
+      <p class="service-desc">Corte tradicional con máquina y tijera, perfilado de contorno con navaja y finalizado con productos de calidad para un acabado impecable.</p>
+      <div class="service-price">$80 <small>MXN / 40 min</small></div>
     </div>
     <div class="service-card">
       <div class="service-tag">🔥 Tendencia</div>
       <span class="service-icon">💈</span>
       <h3 class="service-name">Corte + Barba</h3>
-      <p class="service-desc">Combinación perfecta de corte personalizado y arreglo completo de barba.</p>
-      <div class="service-price">$120 <small>MXN / 60 min</big></div>
+      <p class="service-desc">Corte personalizado más arreglo completo de barba con toalla caliente, perfilado con navaja y aceite hidratante para dejar tu barba perfecta.</p>
+      <div class="service-price">$120 <small>MXN / 60 min</small></div>
     </div>
     <div class="service-card">
       <span class="service-icon">🎨</span>
       <h3 class="service-name">Diseño y Degradado</h3>
-      <p class="service-desc">Fade profesional con diseño personalizado, para un look único e impactante.</p>
-      <div class="service-price">$100 <small>MXN / 50 min</big></div>
+      <p class="service-desc">Fade profesional con degradado progresivo, diseño personalizado en nuca o sienes y definición de líneas para un look único e impactante.</p>
+      <div class="service-price">$100 <small>MXN / 50 min</small></div>
     </div>
     <div class="service-card">
       <div class="service-tag">✨ Premium</div>
       <span class="service-icon">👑</span>
       <h3 class="service-name">Experiencia VIP</h3>
-      <p class="service-desc">Corte + barba + masaje capilar + Mascarilla. La experiencia completa.</p>
-      <div class="service-price">$180 <small>MXN / 90 min</big></div>
+      <p class="service-desc">Corte + barba + masaje capilar relajante + mascarilla facial hidratante. La experiencia completa para lucir y sentirte en tu mejor versión.</p>
+      <div class="service-price">$180 <small>MXN / 90 min</small></div>
     </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
@@ -1283,50 +1289,70 @@
   </div>
   <div class="testimonials-grid reveal">
     <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★</div>
-      <p class="testimonial-text">"Llevo 1 años yendo a EliteCuts y jamás me han decepcionado. El trato es excelente, el lugar impecable y el corte siempre exactamente como lo pido."</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Llegué sin cita y me atendieron muy amablemente. Iván tiene mucho talento, el degradado quedó impecable. Definitivamente ya es mi barbería de confianza."</p>
       <div class="testimonial-author">
         <div class="author-avatar">AR</div>
-        <div>
-          <span class="author-name">Andrés Ramírez</span>
-          <span class="author-since">Cliente desde 2025</span>
-        </div>
+        <div><span class="author-name">Andrés Ramírez</span><span class="author-since">Cliente verificado ✓</span></div>
       </div>
     </div>
     <div class="testimonial-card">
       <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">"Fui por primera vez sin saber qué esperar y salí completamente enamorado del resultado. El ambiente es muy profesional y relajante."</p>
+      <p class="testimonial-text">"Fui por primera vez sin saber qué esperar y salí completamente enamorado del resultado. Mi barba quedó perfecta y el ambiente es muy profesional y relajante."</p>
       <div class="testimonial-author">
         <div class="author-avatar">MG</div>
-        <div>
-          <span class="author-name">Miguel Ángel García</span>
-          <span class="author-since">Cliente verificado ✓</span>
-        </div>
+        <div><span class="author-name">Miguel Ángel García</span><span class="author-since">Cliente verificado ✓</span></div>
       </div>
     </div>
     <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★</div>
-      <p class="testimonial-text">"El servicio VIP vale cada centavo. Nunca pensé que un corte de cabello pudiera ser tan relajante y transformador. Lo recomiendo."</p>
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"El servicio VIP vale cada centavo. Nunca pensé que un corte de cabello pudiera ser tan relajante y transformador. Lo recomiendo a todos mis amigos."</p>
       <div class="testimonial-author">
         <div class="author-avatar">CL</div>
-        <div>
-          <span class="author-name">Carlos López</span>
-          <span class="author-since">Cliente verificado ✓</span>
-        </div>
+        <div><span class="author-name">Carlos López</span><span class="author-since">Cliente verificado ✓</span></div>
       </div>
     </div>
-    <div class="testimonial-card">
-      <div class="testimonial-stars">★★★★</div>
-      <p class="testimonial-text">"Llegué sin cita y me atendieron muy amablemente. El degradado quedó impecable. Definitivamente ya es mi barbería de confianza."</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">AR</div>
-        <div>
-          <span class="author-name">Andrés Ramírez</span>
-          <span class="author-since">Cliente verificado ✓</span>
+  </div>
+
+  <!-- BOTÓN VER MÁS RESEÑAS -->
+  <div style="text-align:center;margin-top:2.5rem;">
+    <button class="btn-outline" id="verMasBtn" onclick="toggleMoreReviews()" style="cursor:pointer;background:transparent;display:inline-flex;align-items:center;gap:.6rem;">
+      <span id="verMasBtnText">Ver más reseñas</span><span id="verMasArrow" style="transition:transform .3s;">↓</span>
+    </button>
+  </div>
+
+  <!-- RESEÑAS EXTRA OCULTAS -->
+  <div id="extraReviews" style="display:none;overflow:hidden;">
+    <div class="testimonials-grid" style="margin-top:1.5rem;">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Muy buena atención, el lugar está muy limpio y el corte quedó exactamente como lo pedí. Precios justos y trato amable. Ya soy cliente frecuente."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JR</div>
+          <div><span class="author-name">Jorge Ríos</span><span class="author-since">Cliente verificado ✓</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Le llevé a mi hijo y quedó feliz. Iván tiene mucha paciencia y el resultado fue increíble. Sin duda regresamos pronto."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PM</div>
+          <div><span class="author-name">Patricia Morales</span><span class="author-since">Cliente verificada ✓</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★☆</div>
+        <p class="testimonial-text">"Excelente corte, muy profesional. El fade quedó perfecto y el perfilado de barba impecable. El lugar tiene muy buena vibra, regreso la próxima semana."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">EV</div>
+          <div><span class="author-name">Eduardo Vega</span><span class="author-since">Cliente verificado ✓</span></div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- RESEÑAS DINÁMICAS -->
+  <div id="dynamicReviews" style="margin-top:2rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;"></div>
 
   <!-- REVIEW FORM -->
   <div class="review-form-wrap reveal" style="margin-top:4rem;">
@@ -1344,10 +1370,8 @@
             <option value="">— Selecciona —</option>
             <option>Corte Clásico</option>
             <option>Corte + Barba</option>
-            <option>Rasurado con Navaja</option>
             <option>Diseño y Degradado</option>
             <option>Experiencia VIP</option>
-            <option>Tratamiento Capilar</option>
           </select>
         </div>
       </div>
@@ -1376,9 +1400,6 @@
       <p style="color:var(--light-gray);font-size:0.88rem;">Tu opinión ya aparece en la sección de reseñas.</p>
     </div>
   </div>
-
-  <!-- DYNAMIC REVIEWS CONTAINER -->
-  <div id="dynamicReviews" style="margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;"></div>
 </section>
 
 <!-- BOOKING -->
@@ -1399,14 +1420,14 @@
       <div class="booking-detail-icon">🕐</div>
       <div class="booking-detail-info">
         <strong>Horarios</strong>
-        <span>Lunes a Sábado: 9:00 AM – 10:00 PM · Domingo: 10:00 – 8:00 PM</span>
+        <span>Lunes a Sábado: 9:00 AM – 8:00 PM · Domingo: 10:00 – 4:00 PM</span>
       </div>
     </div>
     <div class="booking-detail">
       <div class="booking-detail-icon">📞</div>
       <div class="booking-detail-info">
         <strong>Teléfono & WhatsApp</strong>
-        <span>+52 238 166 6971</span>
+        <span>+52 222 123 4567</span>
       </div>
     </div>
     <div class="booking-detail">
@@ -1441,12 +1462,10 @@
           <label>Servicio deseado</label>
           <select id="service">
             <option value="">— Selecciona —</option>
-            <option>Corte Clásico — $120</option>
-            <option>Corte + Barba — $200</option>
-            <option>Rasurado con Navaja — $150</option>
-            <option>Diseño y Degradado — $180</option>
-            <option>Experiencia VIP — $350</option>
-            <option>Tratamiento Capilar — $250</option>
+            <option>Corte Clásico — $80</option>
+            <option>Corte + Barba — $120</option>
+            <option>Diseño y Degradado — $100</option>
+            <option>Experiencia VIP — $180</option>
           </select>
         </div>
       </div>
@@ -1507,10 +1526,8 @@
       <ul>
         <li><a href="#">Corte Clásico</a></li>
         <li><a href="#">Corte + Barba</a></li>
-        <li><a href="#">Rasurado Navaja</a></li>
-        <li><a href="#">Diseño y Fade</a></li>
+        <li><a href="#">Diseño y Degradado</a></li>
         <li><a href="#">Experiencia VIP</a></li>
-        <li><a href="#">Tratamientos</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1553,6 +1570,25 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
 
+  // ── VER MÁS / MENOS RESEÑAS ─────────────────────────────────────
+  let reviewsVisible = false;
+  function toggleMoreReviews() {
+    const extra  = document.getElementById('extraReviews');
+    const btnTxt = document.getElementById('verMasBtnText');
+    const arrow  = document.getElementById('verMasArrow');
+    reviewsVisible = !reviewsVisible;
+    if (reviewsVisible) {
+      extra.style.display = 'block';
+      btnTxt.textContent  = 'Ver menos reseñas';
+      arrow.style.transform = 'rotate(180deg)';
+      extra.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      extra.style.display = 'none';
+      btnTxt.textContent  = 'Ver más reseñas';
+      arrow.style.transform = 'rotate(0deg)';
+    }
+  }
+
   // Floating CTA hide on booking section
   const floatingCta = document.querySelector('.floating-cta');
   const bookingSection = document.getElementById('agendar');
@@ -1573,7 +1609,7 @@
     barberia_email:      'tucorreo@gmail.com',
 
     // WhatsApp — solo el número con código de país, sin + ni espacios
-    whatsapp_number: '522381666971'          // ej: 522381666971
+    whatsapp_number: '522221234567'          // ej: 522221234567
   };
   // ────────────────────────────────────────────────────────────────────────────
 
